@@ -20,7 +20,7 @@ class AppHeader extends PureComponent {
     return (
       <Header>
         <HeaderTitle>
-          {title}
+          <HeaderLink href="/">{title}</HeaderLink>
         </HeaderTitle>
       </Header>
     );
@@ -31,5 +31,11 @@ export default AppHeader;
 
 const HeaderTitle = styled.h2`
     text-align: center;
-    color: white
+`;
+
+const HeaderLink = styled.a`
+    color: white;
+
+    &:hover {
+      color: white;
 `;
