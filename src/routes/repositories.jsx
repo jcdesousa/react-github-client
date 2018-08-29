@@ -24,12 +24,18 @@ class Repositories extends PureComponent {
     this.props.searchRepositories('react'); // eslint-disable-line
   }
 
+  handleSearch = (query) => {
+    if (query && query.length) {
+      this.props.searchRepositories(query);
+    }
+  }
+
   render() {
     const { repositories } = this.props;
 
     return (
       <PageContainer>
-        <Search />
+        <Search onSearch={this.handleSearch} />
         <RepositoryList repositories={repositories} />
       </PageContainer>
     );
@@ -50,7 +56,6 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   },
   dispatch,
 );
-
 
 export default connect(
   mapStateToProps,

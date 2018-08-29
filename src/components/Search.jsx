@@ -1,18 +1,38 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Input } from 'antd';
 import styled from 'styled-components';
+import debounce from 'debounce';
 
 const AntdSearch = Input.Search;
 
-class Search extends PureComponent { // eslint-disable-line
+const DEBOUNCE_SEARCH_MS = 1000; // github rate limit is 10 requests per minute
+
+class Search extends PureComponent {
+  static propTypes = {
+    onSearch: PropTypes.func.isRequired, // eslint-disable-line
+  };
+
+  handleSearchChange = debounce(this.props.onSearch, DEBOUNCE_SEARCH_MS)
+
+  handleChange = (e) => {
+    const { value } = e.target;
+
+    this.handleSearchChange(value);
+  }
+
   render() {
+    const { onSearch } = this.props;
+
     return (
       <SearchContainer>
         <AntdSearch
-          placeholder="input search text"
+          placeholder="Search repositories"
           enterButton="Search"
           size="large"
-          onSearch={value => console.log(value)}
+          onChange={this.handleChange}
+          onSearch={onSearch}
+          required
         />
       </SearchContainer>
     );
