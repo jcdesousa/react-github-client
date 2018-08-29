@@ -13,7 +13,7 @@ class RepositoryList extends PureComponent {
 
       return (
         <RepoCardsContainer>
-          {repositories.map(repo => <RepositoryCard repo={repo} />)}
+          {repositories.map(repo => <RepositoryCard key={repo.id} repo={repo} />)}
         </RepoCardsContainer>
       );
     }

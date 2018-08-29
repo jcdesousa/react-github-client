@@ -25,7 +25,7 @@ class RepositoryCard extends PureComponent {
             {repo.description}
           </RepoDescription>
           <ContributorsLink>
-            <a href={`/${repo.id}/contributors`}>
+            <a href={`/${repo.fullName}/contributors`}>
               Top Contributors
             </a>
           </ContributorsLink>
