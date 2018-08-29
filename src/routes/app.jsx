@@ -15,7 +15,7 @@ const App = () => (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Repositories} />
-        <Route exact path="/contributors/:repoId" component={Contributors} />
+        <Route exact path="/:owner/:repo/contributors" component={Contributors} />
       </Switch>
     </BrowserRouter>
   </div>
