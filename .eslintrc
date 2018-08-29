@@ -7,6 +7,7 @@
         "window": true
     },
     "rules": {
-        "react/destructuring-assignment": "warn"       
+        "react/destructuring-assignment": "warn",
+        "react/jsx-one-expression-per-line": "warn"     
     }
 }
