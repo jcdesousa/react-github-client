@@ -1,0 +1,8 @@
+{
+    "root": "build/",
+    "headers": {
+        "/service-worker.js": {
+            "Cache-Control": "no-store, no-cache"
+        }
+    }
+}
