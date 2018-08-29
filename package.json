@@ -6,6 +6,7 @@
     "antd": "^3.8.4",
     "babel-plugin-import": "^1.8.0",
     "connected-react-router": "^4.4.1",
+    "debounce": "^1.2.0",
     "history": "^4.7.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",

@@ -5,5 +5,8 @@
         "document": true,
         "fetch": true,
         "window": true
+    },
+    "rules": {
+        "react/destructuring-assignment": "warn"       
     }
 }
