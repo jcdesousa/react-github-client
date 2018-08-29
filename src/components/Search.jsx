@@ -27,6 +27,7 @@ class Search extends PureComponent {
     return (
       <SearchContainer>
         <AntdSearch
+          aria-label="Search repositories"
           placeholder="Search repositories"
           enterButton="Search"
           size="large"
