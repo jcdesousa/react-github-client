@@ -48,7 +48,7 @@ class Repositories extends PureComponent {
       <PageContainer>
         <Search onSearch={this.handleSearch} />
         {this.renderLoader()}
-        <RepositoryList repositories={repositories} inicialized={inicialized}/>
+        <RepositoryList repositories={repositories} inicialized={inicialized} />
       </PageContainer>
     );
   }
