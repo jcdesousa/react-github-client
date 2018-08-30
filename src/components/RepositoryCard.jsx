@@ -5,7 +5,16 @@ import styled from 'styled-components';
 
 class RepositoryCard extends PureComponent {
     static propTypes = {
-        repo: PropTypes.object.isRequired, // eslint-disable-line
+      repo: PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        language: PropTypes.string,
+        url: PropTypes.string,
+        fullName: PropTypes.string,
+        stars: PropTypes.number,
+        issues: PropTypes.number,
+        description: PropTypes.string,
+      }).isRequired,
     };
 
     renderDescription() {

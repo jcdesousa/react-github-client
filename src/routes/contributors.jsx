@@ -13,7 +13,7 @@ import {
 } from '../actions/actionCreators';
 import TopContributorsTitle from '../components/TopContributorsTitle';
 
-class Contributors extends PureComponent { // eslint-disable-line
+class Contributors extends PureComponent {
   static propTypes = {
     contributors: PropTypes.array, // eslint-disable-line
     loading: PropTypes.bool.isRequired,
@@ -22,7 +22,7 @@ class Contributors extends PureComponent { // eslint-disable-line
     perPage: PropTypes.number.isRequired,
     showLoadingMore: PropTypes.bool.isRequired,
     match: ReactRouterPropTypes.match.isRequired,
-
+    fetchContributors: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -33,7 +33,7 @@ class Contributors extends PureComponent { // eslint-disable-line
     const { nextPage, match, perPage } = this.props;
     const { params } = match;
 
-    this.props.fetchContributors(params.owner, params.repo, nextPage, perPage); // eslint-disable-line
+    this.props.fetchContributors(params.owner, params.repo, nextPage, perPage);
   }
 
   renderLoadMore = () => {

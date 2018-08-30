@@ -5,8 +5,8 @@ import RepositoryCard from './RepositoryCard';
 
 class RepositoryList extends PureComponent {
     static propTypes = {
-        repositories: PropTypes.array.isRequired, // eslint-disable-line
-        inicialized: PropTypes.bool.isRequired, // eslint-disable-line
+      repositories: PropTypes.array.isRequired, // eslint-disable-line
+      inicialized: PropTypes.bool.isRequired,
     };
 
     renderRepositories = () => {

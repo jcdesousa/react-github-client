@@ -19,10 +19,11 @@ class Repositories extends PureComponent {
     repositories: PropTypes.array.isRequired, // eslint-disable-line
     loading: PropTypes.bool.isRequired,
     inicialized: PropTypes.bool.isRequired,
+    searchRepositories: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    this.props.searchRepositories(); // eslint-disable-line
+    this.props.searchRepositories();
   }
 
   handleSearch = (query) => {
