@@ -59,7 +59,6 @@ class Contributors extends PureComponent { // eslint-disable-line
         <TopContributorsTitle repo={repo} />
 
         <List
-          className="demo-loadmore-list"
           loading={loading}
           itemLayout="horizontal"
           loadMore={this.renderLoadMore()}
