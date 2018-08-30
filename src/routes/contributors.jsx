@@ -19,6 +19,7 @@ class Contributors extends PureComponent { // eslint-disable-line
     loading: PropTypes.bool.isRequired,
     loadingMore: PropTypes.bool.isRequired,
     nextPage: PropTypes.number.isRequired,
+    perPage: PropTypes.number.isRequired,
     showLoadingMore: PropTypes.bool.isRequired,
     match: ReactRouterPropTypes.match.isRequired,
 
@@ -29,10 +30,10 @@ class Contributors extends PureComponent { // eslint-disable-line
   }
 
   getContributors = () => {
-    const { nextPage, match } = this.props;
+    const { nextPage, match, perPage } = this.props;
     const { params } = match;
 
-    this.props.fetchContributors(params.owner, params.repo, nextPage); // eslint-disable-line
+    this.props.fetchContributors(params.owner, params.repo, nextPage, perPage); // eslint-disable-line
   }
 
   renderLoadMore = () => {
@@ -41,7 +42,7 @@ class Contributors extends PureComponent { // eslint-disable-line
     return showLoadingMore ? (
       <LoaderWrapper>
         {loadingMore && <Spin />}
-        {!loadingMore && <Button onClick={this.getContributors}>loading more</Button>}
+        {!loadingMore && <Button onClick={this.getContributors}>Fetch more</Button>}
       </LoaderWrapper>
     ) : null;
   }

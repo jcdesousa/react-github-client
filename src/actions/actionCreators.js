@@ -14,8 +14,8 @@ export function searchRepositories(query) {
   };
 }
 
-export function fetchContributors(owner, repo, page) {
-  const url = `https://api.github.com/repos/${owner}/${repo}/contributors?page=${page}&per_page=10`;
+export function fetchContributors(owner, repo, page, perPage) {
+  const url = `https://api.github.com/repos/${owner}/${repo}/contributors?page=${page}&per_page=${perPage}`;
 
   return {
     type: 'FETCH_CONTRIBUTORS',

@@ -1,3 +1,7 @@
+const INICIAL_PER_PAGE = 10;
+const MORE_PER_PAGE = 5;
+const MORE_NEXT_PAGE = 3;
+
 /**
  * @param  {array} data array of contributors
  */
@@ -31,6 +35,7 @@ function contributorsReducer(state = {
   contributors: [],
   nextPage: 1,
   loadingMore: true,
+  perPage: 10,
 }, action) {
   switch (action.type) {
     case 'FETCH_CONTRIBUTORS_PENDING': {
@@ -56,13 +61,21 @@ function contributorsReducer(state = {
 
       const contributors = state.contributors.concat(newContributors);
 
+      const nextState = { ...state };
+
+      if (state.perPage === INICIAL_PER_PAGE) { // inicial load gets 10 contributors
+        nextState.perPage = MORE_PER_PAGE; // eslint-disable-line no-param-reassign
+        nextState.nextPage = MORE_NEXT_PAGE; // eslint-disable-line no-param-reassign
+      } else {
+        nextState.nextPage += 1;
+      }
+
       return {
-        ...state,
+        ...nextState,
         contributors,
         loading: false,
-        showLoadingMore: newContributors.length === 10,
+        showLoadingMore: newContributors.length === state.perPage,
         loadingMore: false,
-        nextPage: state.nextPage + 1,
       };
     }
     default:
