@@ -19,7 +19,7 @@ class RepositoryCard extends PureComponent {
             </a>
           </RepoTitle>
           <small>
-            {repo.language}
+            {repo.language || '--'}
           </small>
           <RepoDescription>
             {repo.description}
@@ -66,6 +66,18 @@ const CardWrapper = styled.div`
     width: 50%;
     padding: 10px;
     max-width: 50%;
+
+    .ant-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .ant-card-body {
+      flex-grow: 1;
+      position: relative
+    }
 `;
 
 const RepoTitle = styled.div`
@@ -83,6 +95,9 @@ const RepoDescription = styled.div`
 const ContributorsLink = styled.div`
     text-align: right;
     font-size: 12px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 `;
 
 const IconWrapper = styled.div`

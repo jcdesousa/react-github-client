@@ -6,14 +6,16 @@ import RepositoryCard from './RepositoryCard';
 class RepositoryList extends PureComponent {
     static propTypes = {
         repositories: PropTypes.array.isRequired, // eslint-disable-line
+        inicialized: PropTypes.bool.isRequired, // eslint-disable-line
     };
 
     render() {
-      const { repositories } = this.props;
+      const { repositories, inicialized } = this.props;
 
       return (
         <RepoCardsContainer>
           {repositories.map(repo => <RepositoryCard key={repo.id} repo={repo} />)}
+          { inicialized && !repositories.length && <NoResultsFound> No Repositories Found</NoResultsFound>}
         </RepoCardsContainer>
       );
     }
@@ -25,4 +27,10 @@ const RepoCardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding: 20px
+`;
+
+const NoResultsFound = styled.div`
+    text-align: center;
+    font-size: 18px; 
+    width: 100%;
 `;

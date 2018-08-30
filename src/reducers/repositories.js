@@ -31,8 +31,19 @@ function normalizeRepositories(data) {
  * @param  {object} state={}
  * @param  {string} action
  */
-function repositoriesReducer(state = {}, action) {
+function repositoriesReducer(state = {
+  loading: false,
+  repositories: [],
+  inicialized: false,
+}, action) {
   switch (action.type) {
+    case 'SEARCH_REPOSITORIES_PENDING': {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+
     case 'SEARCH_REPOSITORIES_FULFILLED': {
       const data = action.payload || {};
       const { items = [] } = data;
@@ -42,6 +53,8 @@ function repositoriesReducer(state = {}, action) {
       return {
         ...state,
         repositories,
+        loading: false,
+        inicialized: true,
       };
     }
     default:
