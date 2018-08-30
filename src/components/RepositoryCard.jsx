@@ -43,12 +43,12 @@ class RepositoryCard extends PureComponent {
               <IconWrapper>
                 <Icon type="star" />
                 {' '}
-                {repo.stars}
+                {repo.stars.toLocaleString()}
               </IconWrapper>,
               <IconWrapper>
                 <Icon type="warning" />
                 {' '}
-                {repo.issues}
+                {repo.issues.toLocaleString()}
               </IconWrapper>,
             ]}
           >

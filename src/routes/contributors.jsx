@@ -69,7 +69,7 @@ class Contributors extends PureComponent { // eslint-disable-line
                 avatar={<Avatar src={contributor.avatar} />}
                 title={(
                   <a href={contributor.url} target="_blank" rel="noopener noreferrer">
-                    {contributor.login} ({contributor.contributions} Contributions)
+                    {contributor.login} ({contributor.contributions.toLocaleString()} Contributions)
                   </a>
                 )}
               />
