@@ -61,6 +61,7 @@ class RepositoryCard extends PureComponent {
 
 export default RepositoryCard;
 
+
 const CardWrapper = styled.div`
     flex-grow: 1;
     width: 50%;

@@ -23,6 +23,7 @@ class TopContributorsTitle extends PureComponent {
 
 export default TopContributorsTitle;
 
+
 const PageTitle = styled.div`
   font-size: 20px;
   text-align: center;

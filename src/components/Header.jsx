@@ -29,6 +29,7 @@ class AppHeader extends PureComponent {
 
 export default AppHeader;
 
+
 const HeaderTitle = styled.h2`
     text-align: center;
 `;

@@ -42,6 +42,7 @@ class Search extends PureComponent {
 
 export default Search;
 
+
 const SearchContainer = styled.div`
     width: 60%;
     margin: auto;

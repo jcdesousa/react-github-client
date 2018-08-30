@@ -9,19 +9,37 @@ class RepositoryList extends PureComponent {
         inicialized: PropTypes.bool.isRequired, // eslint-disable-line
     };
 
+    renderRepositories = () => {
+      const { repositories } = this.props;
+
+      return repositories.map(repo => (
+        <RepositoryCard
+          key={repo.id}
+          repo={repo}
+        />
+      ));
+    }
+
     render() {
       const { repositories, inicialized } = this.props;
 
       return (
         <RepoCardsContainer>
-          {repositories.map(repo => <RepositoryCard key={repo.id} repo={repo} />)}
-          { inicialized && !repositories.length && <NoResultsFound> No Repositories Found</NoResultsFound>}
+          {this.renderRepositories()}
+
+          { inicialized && !repositories.length
+            && (
+            <NoResultsFound>
+              No Repositories Found
+            </NoResultsFound>
+            )}
         </RepoCardsContainer>
       );
     }
 }
 
 export default RepositoryList;
+
 
 const RepoCardsContainer = styled.div`
     display: flex;
