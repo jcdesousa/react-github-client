@@ -52,13 +52,15 @@ function contributorsReducer(state = {
         };
       }
 
-      const contributors = state.contributors.concat(normalizeContributors(data));
+      const newContributors = normalizeContributors(data);
+
+      const contributors = state.contributors.concat(newContributors);
 
       return {
         ...state,
         contributors,
         loading: false,
-        showLoadingMore: true,
+        showLoadingMore: newContributors.length === 10,
         loadingMore: false,
         nextPage: state.nextPage + 1,
       };
